@@ -23,29 +23,35 @@ $ sudo brew install travis
 
 ##### Дополнительное задание:
 Для удобства, чтобы в консоли можно было осуществить подключение простой командой `ssh someinternalhost` необходимо прописать конфигурацию в `~/.ssh/config`:
+```
+Host someinternalhost
+   User appuser
+   HostName 10.132.0.3
+   IdentityFile ~/.ssh/appuser
+   ProxyJump appuser@35.210.183.22
+ ```
+или
+```
+Host someinternalhost3
+   User appuser
+   HostName 10.132.0.3
+   IdentityFile ~/.ssh/appuser
+   ProxyCommand ssh appuser@35.210.183.22 -W %h:%p
+```
+или
+```
+Host someinternalhost
+   User appuser
+   HostName 35.210.183.22
+   IdentityFile ~/.ssh/appuser
+   ForwardAgent yes
+   RemoteCommand ssh 10.132.0.3
+   RequestTTY yes
+```
 
+###Задание с VPN:
+Конфигурация:
 ```
-Host someinternalhost
-  User appuser
-  HostName 10.132.0.3
-  IdentityFile ~/.ssh/appuser
-  ProxyJump appuser@35.210.183.22
-```
-или
-```
-Host someinternalhost
-  User appuser
-  HostName 10.132.0.3
-  IdentityFile ~/.ssh/appuser
-  ProxyCommand ssh appuser@35.210.183.22 -W %h:%p
-```
-или
-```
-Host someinternalhost
-  User appuser
-  HostName 35.210.183.22
-  IdentityFile ~/.ssh/appuser
-  ForwardAgent yes
-  RemoteCommand ssh 10.132.0.3
-  RequestTTY yes
+bastion_IP = 35.210.183.22
+someinternalhost_IP = 10.132.0.3
 ```
