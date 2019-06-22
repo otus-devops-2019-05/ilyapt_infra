@@ -49,7 +49,7 @@ Host someinternalhost
    RequestTTY yes
 ```
 
-###Задание с VPN:
+### Задание с VPN:
 Конфигурация:
 ```
 bastion_IP = 35.210.183.22
