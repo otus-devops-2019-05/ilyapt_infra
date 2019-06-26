@@ -70,9 +70,22 @@ testapp_port = 9292
 #### Дополнительное задание:
 Команда для запуска со startup script для автоматизированной установки:
 ```
-gcloud compute instances create reddit-app --boot-disk-size=10GB --image-family ubuntu-1604-lts --image-project=ubuntu-os-cloud --machine-type=g1-small --tags puma-server --restart-on-failure --metadata startup-script-url=https://raw.githubusercontent.com/otus-devops-2019-05/ilyapt_infra/88e489c2e4ee962c853d51d428a03e1cd97c11db/startup.sh
+gcloud compute instances create reddit-app \
+  --boot-disk-size=10GB \
+  --image-family ubuntu-1604-lts \
+  --image-project=ubuntu-os-cloud \
+  --machine-type=g1-small \
+  --tags puma-server \
+  --restart-on-failure \
+  --metadata startup-script-url=https://raw.githubusercontent.com/otus-devops-2019-05/ilyapt_infra/88e489c2e4ee962c853d51d428a03e1cd97c11db/startup.sh
 ```
 Команда для создания правила брендмауэра из gcloud:
 ```
-gcloud compute firewall-rules create default-puma-server --direction=INGRESS --priority=1000 --network=default --action=ALLOW --rules=tcp:9292 --target-tags=puma-server
+gcloud compute firewall-rules create default-puma-server \
+  --direction=INGRESS \
+  --priority=1000 \
+  --network=default \
+  --action=ALLOW \
+  --rules=tcp:9292 \
+  --target-tags=puma-server
 ```
