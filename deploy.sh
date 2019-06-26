@@ -17,3 +17,4 @@ if [ $? -ne 0 ]; then
   echo "Failed to run service"
   exit 1
 fi
+
