@@ -24,4 +24,3 @@ if [ $? -ne 0 ]; then
   echo "Failed to enable and start mongodb"
   exit 1
 fi
-
