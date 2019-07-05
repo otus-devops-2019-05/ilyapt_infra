@@ -6,4 +6,3 @@ gcloud compute instances create reddit-full-app \
   --machine-type=g1-small \
   --tags puma-server \
   --restart-on-failure
-  
