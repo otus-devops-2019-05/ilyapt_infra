@@ -62,7 +62,7 @@ someinternalhost_IP = 10.132.0.3
 ------------
 
 ### Домашнее задание №4
-Конфигуриация для домашнего задания:
+Конфигурация для домашнего задания:
 ```
 testapp_IP = 35.241.219.226
 testapp_port = 9292
@@ -89,3 +89,13 @@ gcloud compute firewall-rules create default-puma-server \
   --rules=tcp:9292 \
   --target-tags=puma-server
 ```
+
+### Домашнее задание №5
+Запечка образа:
+- Базового `packer -var-file variables.json ubuntu16.json`
+- Полного `packer -var-file variables.json immutable.json`
+
+**Необходимо переименовать `variables.json.example` в `variables.json` и установить реальные параметры**
+
+#### Дополнительное задание:
+Запустить виртуалку из запеченного образа (полного) можно с помощью скрипта `config-scripts/create-redditvm.sh`
