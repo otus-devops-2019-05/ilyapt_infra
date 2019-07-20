@@ -41,8 +41,3 @@ variable db_disk_image {
   description = "Disk image for reddit db"
   default     = "reddit-db-base"
 }
-
-variable source_range {
-  description = "IP address range gor fw"
-  default     = "0.0.0.0/0"
-}
