@@ -26,3 +26,8 @@ variable private_key_path {
 variable disk_image {
   description = "Disk image"
 }
+
+variable "instance_count" {
+  description = "google compute instance count"
+  default     = "1"
+}
