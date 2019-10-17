@@ -1,15 +1,17 @@
 #!/bin/bash
 
 if [ "$1" == "--list" ] ; then
-#APP_IP=`(cd ../terraform/stage/ && terraform output -json app_external_ip | jq '.value')`
-#DB_IP=`(cd ../terraform/stage/ && terraform output -json db_external_ip | jq '.value')`
+APP_IP=`(cd ../terraform/stage/ && terraform output -json app_external_ip | jq '.value')`
+DB_IP=`(cd ../terraform/stage/ && terraform output -json db_external_ip | jq '.value')`
+MONGO=`(cd ../terraform/stage/ && terraform output -json db_ip | jq '.value')`
 cat << EOF
 {
     "app": {
-      "hosts": ["34.77.99.227"]
+      "hosts": [${APP_IP}]
     },
     "db": {
-      "hosts": ["35.240.24.91"]
+      "vars": { "mongo": ${MONGO} },
+      "hosts": [${DB_IP}]
     }
 }
 EOF
