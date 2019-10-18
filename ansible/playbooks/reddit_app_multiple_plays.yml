@@ -12,7 +12,7 @@
         mode: 0644
       notify: restart mongod
   handlers:
-    - name: restart mongod      
+    - name: restart mongod
       service: name=mongod state=restarted
 
 - name: Configure App
