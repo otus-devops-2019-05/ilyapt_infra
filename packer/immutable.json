@@ -20,12 +20,12 @@
     "provisioners": [
         {
             "type": "file",
-            "source": "files/reddit-daemon.service",
+            "source": "packer/files/reddit-daemon.service",
             "destination": "/tmp/reddit-daemon.service"
         },
         {
             "type": "shell",
-            "script": "scripts/deploy.sh"
+            "script": "packer/scripts/deploy.sh"
         }
     ]
 }

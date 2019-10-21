@@ -1,0 +1,10 @@
+- name: Configure App
+  hosts: app
+  become: true
+
+  vars:
+    db_host: "{{ hostvars[groups['db'][0]]['mongo'] }}"
+
+  roles:
+    - app
+    - jdauphant.nginx
